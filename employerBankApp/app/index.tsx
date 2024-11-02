@@ -1,15 +1,20 @@
-import { Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import login from './Screens/login'; // Make sure this path is correct
+import menu from './Screens/menu'; // Make sure this path is correct
+
+const Stack = createNativeStackNavigator();
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName='login'>
+        
+        <Stack.Screen name="login" component={login} />
+        <Stack.Screen name="menu" component={menu} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
