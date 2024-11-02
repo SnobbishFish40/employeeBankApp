@@ -6,7 +6,7 @@ type HomeScreenProps = {
   navigation: NativeStackNavigationProp<any>;
 };
 
-const Home: React.FC<HomeScreenProps> = ({ navigation }) => {
+const Login: React.FC<HomeScreenProps> = ({ navigation }) => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
@@ -68,4 +68,4 @@ const Home: React.FC<HomeScreenProps> = ({ navigation }) => {
   );
 }
 
-export default Home;
+export default Login;
