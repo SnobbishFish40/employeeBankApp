@@ -5,7 +5,8 @@ export default function MenuBlock({Name}){
 
 
 const nextPage = () =>{
-    navigation.navigate(Name); 
+    navigation.navigate(login); 
+    console.log('Clicked');
 
 }
 
@@ -38,7 +39,7 @@ const nextPage = () =>{
           fontWeight:500
         }}
         
-        >{Name}</Text> {/* Wrap text in a Text component */}
+        >{"Name"}</Text> {/* Wrap text in a Text component */}
       </View>
       
     </LinearGradient>

@@ -1,10 +1,9 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import login from './Screens/login'; // Make sure this path is correct
 import menu from './Screens/menu'; // Make sure this path is correct
-import schedule from './Screens/schedule';
+import Messages from './Screens/Messages';
 const Stack = createNativeStackNavigator();
 
 export default function Index() {
@@ -14,7 +13,9 @@ export default function Index() {
         
         <Stack.Screen name="login" component={login} />
         <Stack.Screen name="menu" component={menu} />
-        <Stack.Screen name="schedule" component={schedule} />
+        <Stack.Screen name="Messages" component={Messages} />
+
+     
       </Stack.Navigator>
     </NavigationContainer>
   );

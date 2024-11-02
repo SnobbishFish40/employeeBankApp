@@ -1,9 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput, Button} from 'react-native';
 import MenuBlock from '../components/MenuBlock'
-
-import Login from './login';
-const Menu = () => {
+const Messages = () => {
 
   const logIn = () => {
     
@@ -19,7 +17,7 @@ const Menu = () => {
         margin:0,
       }}>
 
-      <MenuBlock Name={Login}/>
+      <MenuBlock Name={"schedule"}/>
       <MenuBlock Name={"Progress tracker"}/>
       <MenuBlock Name={"Messages"}/>
       <MenuBlock Name={"Subscriptions"}/>
@@ -33,4 +31,4 @@ const Menu = () => {
   );
 }
 
-export default Menu;
+export default Messages
