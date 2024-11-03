@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, Button, Alert } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Alert, Pressable, Image } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+// Adjust the path to your image
+
 
 type HomeScreenProps = {
   navigation: NativeStackNavigationProp<any>;
@@ -41,10 +44,39 @@ const Login: React.FC<HomeScreenProps> = ({ navigation }) => {
       color: '#fff',
       marginBottom: 20,
     },
+    button: {
+      backgroundColor: '#E04678',
+      paddingVertical: 12,
+      paddingHorizontal: 20,
+      borderRadius: 8,
+      elevation: 3,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.3,
+      shadowRadius: 4,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: 10,
+    },
+    buttonText: {
+      color: '#fff',
+      fontWeight: 'bold',
+      fontSize: 16,
+    },
+    logo: {
+      width: 250, // Set the width of the logo
+      height: 150, // Set the height of the logo
+      marginBottom: 20, // Space below the logo
+      borderRadius:10
+    },
   });
 
   return (
     <View style={styles.container}>
+      <Image
+        source={require('../images/logo.png')} // Use the imported logo
+        style={styles.logo} // Use the styles defined
+      />
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
@@ -59,13 +91,11 @@ const Login: React.FC<HomeScreenProps> = ({ navigation }) => {
         onChangeText={setPassword}
         secureTextEntry={!showPassword}
       />
-      <Button
-        title={showPassword ? 'Hide Password' : 'Show Password'}
-        onPress={() => setShowPassword(prev => !prev)}
-      />
-      <Button title="Log In" onPress={logIn} />
+      <Pressable style={styles.button} onPress={logIn}>
+        <Text style={styles.buttonText}>Log In</Text>
+      </Pressable>
     </View>
   );
-}
+};
 
 export default Login;

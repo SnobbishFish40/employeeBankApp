@@ -2,12 +2,13 @@ import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { View, Text, StyleSheet } from 'react-native';
 
-type HomeScreenProps = {
-  location: string;
-  name: string;
+type ProjectBlockProps = {
+  description: string;
+  employee: string;
+  progress: number; // Progress as a percentage
 };
 
-const ScheduleBlock: React.FC<HomeScreenProps> = ({ name, location }) => {
+const ProjectBlock: React.FC<ProjectBlockProps> = ({ description, employee, progress }) => {
   return (
     <LinearGradient
       colors={["#614879", "#E04678"]}
@@ -15,8 +16,9 @@ const ScheduleBlock: React.FC<HomeScreenProps> = ({ name, location }) => {
       style={styles.gradient}
     >
       <View style={styles.container}>
-        <Text style={styles.text}>Location: {location}</Text>
-        <Text style={styles.text}>Employee: {name}</Text>
+        <Text style={styles.text}>Description: {description}</Text>
+        <Text style={styles.text}>Employee: {employee}</Text>
+        <Text style={styles.text}>Progress: {progress}%</Text>
       </View>
     </LinearGradient>
   );
@@ -28,8 +30,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "thistle",
     borderRadius: 5,
-    height: 75,
-    width: 300,
+    height: 130, // Increased height for better layout
+    width: 300, // Adjust width as needed
     marginTop: 10,
   },
   container: {
@@ -40,8 +42,9 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     color: '#fff',
-    fontWeight: 'bold', // Use 'bold' for better clarity
+    fontWeight: 'bold',
+    marginVertical: 5, // Add vertical spacing between text elements
   },
 });
 
-export default ScheduleBlock;
+export default ProjectBlock;

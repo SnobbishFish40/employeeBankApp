@@ -7,20 +7,21 @@ import Messages from './Screens/Messages';
 import Workflows from './Screens/Workflows';
 import Schedules from './Screens/Schedules';
 import SchedulesSheet from './Screens/ScheduleSheet';
+import ProjectFlow from './Screens/ProjectFlow';
+
 const Stack = createNativeStackNavigator();
 
 export default function Index() {
   return (
-    <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName='login'>
-        
-        <Stack.Screen name="login" component={login} />
-        <Stack.Screen name="menu" component={menu} />
-        <Stack.Screen name="Messages" component={Messages} />
-        <Stack.Screen name="Schedules" component={Schedules} />
-        <Stack.Screen name="SchedulesSheet" component={SchedulesSheet} />
-
-        <Stack.Screen name="Workflows" component={Workflows} />
+    <NavigationContainer independent={true} >
+      <Stack.Navigator initialRouteName='login' >
+        <Stack.Screen name="login" component={login}  options={{ headerShown: false }}/>
+        <Stack.Screen name="menu" component={menu} options={{  headerTitle: 'Dashboard' }} />
+        <Stack.Screen name="Messages" component={Messages} options={{  headerTitle: 'Messages' }}/>
+        <Stack.Screen name="Schedules" component={Schedules} options={{  headerTitle: 'Schedule' }} />
+        <Stack.Screen name="ScheduleSheet" component={SchedulesSheet} options={{  headerTitle: 'Team Schedule' }}/>
+        <Stack.Screen name="Workflows" component={Workflows} options={{  headerTitle: 'Project Workflow' }}/>
+        <Stack.Screen name="ProjectFlow" component={ProjectFlow} options={{  headerTitle: 'Project Flow' }}/>
 
       </Stack.Navigator>
     </NavigationContainer>

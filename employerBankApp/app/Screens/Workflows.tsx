@@ -1,10 +1,23 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import MenuBlock from '../components/MenuBlock';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-const Workflows = () => {
+
+type ScheduleScreenProps = {
+  navigation: NativeStackNavigationProp<any>;
+};
+
+const Workflows: React.FC<ScheduleScreenProps> = ({ navigation }) => {
+
   return (
     <View style={styles.container}>
-      <Text style={styles.greeting}>Hello</Text>
+      <Text>Projects</Text>
+      <View style={styles.container}>
+      <MenuBlock navigation={navigation} page='ProjectFlow' name='ProjectX'/>
+      <MenuBlock navigation={navigation} page='ProjectFlow' name='Internal Tooling Project'/>
+      <MenuBlock navigation={navigation} page='ProjectFlow' name='MortgageApp'/>
+    </View>
     </View>
   );
 };
