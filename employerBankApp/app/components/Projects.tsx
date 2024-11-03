@@ -2,7 +2,13 @@ import React from "react";
 import LinearGradient from 'expo-linear-gradient';
 import { Pressable, View, Text } from "react-native";
 
-function Projects({ description, employeeName, progress }) {
+interface ProjectProps {
+  description: String;
+  employeeName: String;
+  progress: String;
+}
+
+const Projects: React.FC<ProjectProps> = ({ description, employeeName, progress }) => {
   return (
     <Pressable>
         <LinearGradient
