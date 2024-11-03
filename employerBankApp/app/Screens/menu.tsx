@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput, Button} from 'react-native';
 import MenuBlock from '../components/MenuBlock'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+type HomeScreenProps = {
+  navigation: NativeStackNavigationProp<any>;
+};
 
-import Login from './login';
-const Menu = () => {
+const Menu: React.FC<HomeScreenProps> = ({ navigation }) => {
 
-  const logIn = () => {
-    
-    }
 
   return (
     <View
@@ -19,12 +19,11 @@ const Menu = () => {
         margin:0,
       }}>
 
-      <MenuBlock Name={Login}/>
-      <MenuBlock Name={"Progress tracker"}/>
-      <MenuBlock Name={"Messages"}/>
-      <MenuBlock Name={"Subscriptions"}/>
-      <MenuBlock Name={"Mental check in"}/>
-      <MenuBlock Name={"Settings"}/>
+      <MenuBlock navigation={navigation} page='Schedules' name='Schedules'/>
+      <MenuBlock navigation={navigation} page='Messages' name='Messages'/>
+      <MenuBlock navigation={navigation} page='Workflows' name='Workflows'/>
+      <MenuBlock navigation={navigation} page='Settings' name='Settings'/>
+
 
       
 

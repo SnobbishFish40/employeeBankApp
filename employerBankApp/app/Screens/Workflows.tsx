@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Messages = () => {
+const Workflows = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.greeting}>Hello</Text>
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Messages;
+export default Workflows;

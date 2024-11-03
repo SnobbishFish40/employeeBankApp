@@ -1,13 +1,20 @@
 import {LinearGradient} from 'expo-linear-gradient';
 import { View, Text, StyleSheet, Pressable, Alert } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-export default function MenuBlock({Name}){
 
+  type HomeScreenProps = {
+    navigation: NativeStackNavigationProp<any>;
+    page: string
+    name:string
+  };
+
+
+const MenuBlock: React.FC<HomeScreenProps> = ({ navigation, page,name }) => {
 
 const nextPage = () =>{
-    navigation.navigate(login); 
-    console.log('Clicked');
-
+  console.log("Clicked")
+    navigation.navigate(page); 
 }
 
     return(
@@ -39,10 +46,12 @@ const nextPage = () =>{
           fontWeight:500
         }}
         
-        >{"Name"}</Text> {/* Wrap text in a Text component */}
+        >{name}</Text> {/* Wrap text in a Text component */}
       </View>
       
     </LinearGradient>
     </Pressable>
     )
 }
+
+export default MenuBlock
