@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "age": 28,
+    "location": "New York, USA",
+    "role": "Software Engineer",
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "email": "bob.smith@example.com",
+    "age": 34,
+    "location": "San Francisco, USA",
+    "role": "Project Manager",
+    "active": true
+  },
+  {
+    "id": 3,
+    "name": "Carol Martinez",
+    "email": "carol.martinez@example.com",
+    "age": 41,
+    "location": "Austin, USA",
+    "role": "UX Designer",
+    "active": false
+  },
+  {
+    "id": 4,
+    "name": "David Lee",
+    "email": "david.lee@example.com",
+    "age": 29,
+    "location": "Seattle, USA",
+    "role": "Data Analyst",
+    "active": true
+  },
+  {
+    "id": 5,
+    "name": "Eve Turner",
+    "email": "eve.turner@example.com",
+    "age": 36,
+    "location": "Chicago, USA",
+    "role": "DevOps Engineer",
+    "active": false
+  }
+]
