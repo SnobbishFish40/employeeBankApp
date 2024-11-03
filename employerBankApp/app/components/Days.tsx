@@ -2,7 +2,11 @@ import React from "react";
 import LinearGradient from 'expo-linear-gradient';
 import { Pressable } from "react-native";
 
-function Days({ day }) {
+interface DaysProps {
+  day: String;
+}
+
+const Days: React.FC<DaysProps> = ({ day }) => {
   return (
     <Pressable>
         <LinearGradient

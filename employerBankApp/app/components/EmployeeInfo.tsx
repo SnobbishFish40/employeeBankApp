@@ -2,7 +2,12 @@ import React from "react";
 import LinearGradient from 'expo-linear-gradient';
 import { View, Text, Pressable } from "react-native";
 
-function EmployeeInfo({ location, employeeName }) {
+interface EmployeeInfoProps {
+  location: String;
+  employeeName: String;
+}
+
+const EmployeeInfo: React.FC<EmployeeInfoProps> = ({ location, employeeName }) {
   return (
   <Pressable>
     <LinearGradient
