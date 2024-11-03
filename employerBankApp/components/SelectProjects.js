@@ -7,14 +7,14 @@ import {
     View,
     TextInput,
   } from "react-native";
-  import { Colours } from "./enumerators.js";
+  import { Colours } from "./components/enumerators.js";
   import React, { useState } from "react";
   
   import {
     CustomButton,
     submitDates,
     formStyles,
-  } from "./FormComponents.js";
+  } from "./components/FormComponents.js";
   
   function Textbox() {
     const [text, setText] = useState("");
@@ -37,10 +37,9 @@ import {
     );
   }
   
-  function Dropdown() {
+  function ProjectDropdown() {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  
     const options = ["Project1", "Project2", "Project3", "Project4"];
   
     const toggleDropdown = () => {
@@ -49,29 +48,25 @@ import {
   
     const handleOptionSelect = (option) => {
       if (selectedOptions.includes(option)) {
-        // If the option is already selected, remove it from the array
         setSelectedOptions(selectedOptions.filter((item) => item !== option));
       } else {
-        // If the option is not selected, add it to the array
         setSelectedOptions([...selectedOptions, option]);
       }
     };
   
     return (
       <View style={formStyles.container}>
-        {/* Dropdown Button */}
         <TouchableOpacity
           style={formStyles.dropdownButton}
           onPress={toggleDropdown}
         >
           <Text style={formStyles.text}>
             {selectedOptions.length > 0
-              ? selectedOptions.join(", ") // Display selected options
+              ? selectedOptions.join(", ")
               : "Select expected current projects"}
           </Text>
         </TouchableOpacity>
   
-        {/* Dropdown Options */}
         {isDropdownOpen && (
           <View style={formStyles.dropdownOptions}>
             {options.map((option, index) => (
@@ -79,12 +74,60 @@ import {
                 key={index}
                 style={[
                   formStyles.option,
-                  selectedOptions.includes(option) && formStyles.selectedOption, // Apply a different style for selected options
+                  selectedOptions.includes(option) && formStyles.selectedOption,
                 ]}
                 onPress={() => handleOptionSelect(option)}
               >
                 <Text style={formStyles.text}>
                   {selectedOptions.includes(option) ? "✓ " : ""}
+                  {option}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+      </View>
+    );
+  }
+  
+  function ProgressDropdown() {
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const options = ["0%", "25%", "50%", "75%", "100%"];
+  
+    const toggleDropdown = () => {
+      setIsDropdownOpen(!isDropdownOpen);
+    };
+  
+    const handleOptionSelect = (option) => {
+      setSelectedOption(option);
+      setIsDropdownOpen(false);
+    };
+  
+    return (
+      <View style={formStyles.container}>
+        <TouchableOpacity
+          style={formStyles.dropdownButton}
+          onPress={toggleDropdown}
+        >
+          <Text style={formStyles.text}>
+            {selectedOption ? selectedOption : "Select progress"}
+          </Text>
+        </TouchableOpacity>
+  
+        {isDropdownOpen && (
+          <View style={formStyles.dropdownOptions}>
+            {options.map((option, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  formStyles.option,
+                  selectedOption === option && formStyles.selectedOption,
+                ]}
+                onPress={() => handleOptionSelect(option)}
+              >
+                <Text style={formStyles.text}>
+                  {selectedOption === option ? "✓ " : ""}
                   {option}
                 </Text>
               </TouchableOpacity>
@@ -117,12 +160,18 @@ import {
               Select the project
             </Text>
   
-            <Dropdown />
+            <ProjectDropdown />
   
             <Text style={[formStyles.h6Text, { marginTop: 20 }]}>Location</Text>
             <View style={{ marginTop: 10 }}></View>
             <Textbox />
   
+            <Text
+              style={[formStyles.h6Text, { marginTop: 20, marginBottom: 10 }]}
+            >
+              Progress
+            </Text>
+            <ProgressDropdown />
             <View
               style={{
                 flexDirection: "row",
