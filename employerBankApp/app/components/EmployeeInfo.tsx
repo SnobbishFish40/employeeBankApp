@@ -7,7 +7,7 @@ interface EmployeeInfoProps {
   employeeName: String;
 }
 
-const EmployeeInfo: React.FC<EmployeeInfoProps> = ({ location, employeeName }) {
+const EmployeeInfo: React.FC<EmployeeInfoProps> = ({ location, employeeName }) => {
   return (
   <Pressable>
     <LinearGradient
