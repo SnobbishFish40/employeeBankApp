@@ -4,7 +4,7 @@ import { Pressable } from "react-native";
 
 function Days({ day }) {
   return (
-    <Pressable onPress={nextPage}>
+    <Pressable>
         <LinearGradient
       colors={["#614879", "#E04678"]}
       start={{ x: 0, y: 0 }}
@@ -31,8 +31,7 @@ function Days({ day }) {
           color:'#fff',
           fontWeight:500
         }}
-        
-        >title={day}</Text> {/* Wrap text in a Text component */}
+        >{day}</Text> {/* Wrap text in a Text component */}
       </View>
       
     </LinearGradient>
