@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { Colours } from "./enumerators.js";
-
+import React from "react";
+import { Colours } from "./enumerators";
 import {
   CustomButton,
   submitDates,
   formStyles,
   Dropdown,
-} from "./FormComponents.js";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+} from "./FormComponents";
+import { StyleSheet, Text, View } from "react-native";
 
-function ConfirmLocation() {
+// Define the ConfirmLocation functional component
+function ConfirmLocation(): JSX.Element {
   return (
     <View style={styles.app}>
       <Text style={formStyles.titleText}>Confirm Location</Text>
@@ -60,46 +60,16 @@ function ConfirmLocation() {
             marginRight: 60,
           }}
         >
-          <View style={formStyles.buttonContainer}>
-            <CustomButton
-              title="Mon"
-              onPress={submitDates}
-              buttonStyle={formStyles.daysButton}
-              textStyle={formStyles.text}
-            />
-          </View>
-          <View style={formStyles.buttonContainer}>
-            <CustomButton
-              title="Tue"
-              onPress={submitDates}
-              buttonStyle={formStyles.daysButton}
-              textStyle={formStyles.text}
-            />
-          </View>
-          <View style={formStyles.buttonContainer}>
-            <CustomButton
-              title="Wed"
-              onPress={submitDates}
-              buttonStyle={formStyles.daysButton}
-              textStyle={formStyles.text}
-            />
-          </View>
-          <View style={formStyles.buttonContainer}>
-            <CustomButton
-              title="Thu"
-              onPress={submitDates}
-              buttonStyle={formStyles.daysButton}
-              textStyle={formStyles.text}
-            />
-          </View>
-          <View style={formStyles.buttonContainer}>
-            <CustomButton
-              title="Fri"
-              onPress={submitDates}
-              buttonStyle={formStyles.daysButton}
-              textStyle={formStyles.text}
-            />
-          </View>
+          {["Mon", "Tue", "Wed", "Thu", "Fri"].map((day) => (
+            <View key={day} style={formStyles.buttonContainer}>
+              <CustomButton
+                title={day}
+                onPress={submitDates}
+                buttonStyle={formStyles.daysButton}
+                textStyle={formStyles.text}
+              />
+            </View>
+          ))}
         </View>
         <Text style={[formStyles.h6Text, { marginTop: 30 }]}>Location</Text>
         <View style={{ marginTop: 10 }}>
@@ -139,13 +109,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
-    fontSize: "1.5rem",
+    fontSize: 24, // Adjusted to use a number for TypeScript compatibility
     marginVertical: "1em",
     textAlign: "center",
   },
   text: {
-    lineHeight: "1.5em",
-    fontSize: "1.125rem",
+    lineHeight: 24, // Adjusted to use a number for TypeScript compatibility
+    fontSize: 18, // Adjusted to use a number for TypeScript compatibility
     marginVertical: "1em",
     textAlign: "center",
   },
@@ -154,20 +124,6 @@ const styles = StyleSheet.create({
   },
   code: {
     fontFamily: "monospace, monospace",
-  },
-});
-
-const buttonStyles = StyleSheet.create({
-  button: {
-    backgroundColor: "#2196F3",
-    borderRadius: 2,
-  },
-  text: {
-    color: "#fff",
-    fontWeight: "500",
-    padding: 8,
-    textAlign: "center",
-    textTransform: "uppercase",
   },
 });
 
