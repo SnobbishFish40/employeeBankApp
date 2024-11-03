@@ -7,7 +7,7 @@ import {
   View,
   TextInput,
 } from "react-native";
-import { Colours } from "../app/components/enumerators";
+import { Colours } from "./enumerators";
 import React, { useState } from "react";
 
 import {

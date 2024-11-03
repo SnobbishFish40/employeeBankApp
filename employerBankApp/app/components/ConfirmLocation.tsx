@@ -5,7 +5,7 @@ import {
   submitDates,
   formStyles,
   Dropdown,
-} from "../../components/FormComponents";
+} from "./FormComponents";
 import { StyleSheet, Text, View } from "react-native";
 
 // Define the ConfirmLocation functional component
